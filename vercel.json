@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd apps/home && pnpm build",
-  "outputDirectory": "apps/home/dist",
-  "installCommand": "pnpm install",
-  "framework": null
-}
