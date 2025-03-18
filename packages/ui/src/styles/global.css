@@ -88,7 +88,8 @@ body {
     font-size: 1rem;  /* How is it different from default variable? */
     line-height: var(--line-height-base);
     color: var(--dark);
-    /* background-image: url(' ') */
+    background-image: url("../../../../apps/home/src/assets/images/park.jpg");
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 

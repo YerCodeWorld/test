@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import MainLayout from "@repo/ui/components/layout/MainLayout";
+// import './App.css';
 
 // Login logic?
 // Routes?

@@ -1,10 +1,13 @@
 // src/components/layout/Menu.tsx
-
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './../../styles/components/layout/menu.css';
-
-// import images
+import blue from '../../images/full/blue.png';
+import lavender from '../../images/full/lavender.png';
+import purple from '../../images/full/purple.png';
+import teal from '../../images/full/teal.png';
+import warmPink from '../../images/full/warmPink.png';
+// import coral from '../../images/full/coral.png';
+import '../../styles/components/layout/menu.css';
 
 interface MenuProps {
     isOpen: boolean;
@@ -12,27 +15,29 @@ interface MenuProps {
 }
 
 const themeColors = [
-    // remember to add images
-    { name: 'Teal', primary: '#5C9EAD', primaryDark: '#487F8A'},
-    { name: 'Pink', primary: '#D46BA3', primaryDark: '#B3588C' },
-    { name: 'Blue', primary: '#779ECB', primaryDark: '#637EB0' },
-    { name: 'Coral', primary: '#E08D79', primaryDark: '#C17063'},
-    { name: 'Lavender', primary: '#A47BB9', primaryDark: '#8A66A0'}
-]
+    { name: 'Teal', primary: '#5C9EAD', primaryDark: '#487F8A', image: teal},
+    { name: 'Pink', primary: '#D46BA3', primaryDark: '#B3588C', image: warmPink },
+    { name: 'Blue', primary: '#779ECB', primaryDark: '#637EB0', image: blue },
+    { name: 'Coral', primary: '#E08D79', primaryDark: '#C17063', image: lavender },
+    { name: 'Lavender', primary: '#A47BB9', primaryDark: '#8A66A0', image: purple }
+];
+
 
 const Menu = ({ isOpen, onClose }: MenuProps) => {
-
+    // const { user, isAuthenticated, logout } = useAuth();
     const isAuthenticated: boolean = true;
 
+    // Handle Escape key press to close menu
     useEffect(() => {
         const handleEscKey = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' && isOpen) {
                 onClose();
             }
-        }
+        };
 
         window.addEventListener('keydown', handleEscKey);
 
+        // Prevent scrolling when menu is open
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -42,44 +47,45 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
         return () => {
             window.removeEventListener('keydown', handleEscKey);
             document.body.style.overflow = '';
-        }
-
+        };
     }, [isOpen, onClose]);
 
+    // Handle logout
+    const handleLogout = () => {
+        onClose();
+    };
 
-    const changeThemeColor = (primary: string, primaryDark: string) => {
-
+    // Function to change theme color
+    const changeThemeColor = (primary: string, primaryDark: string, image: any) => {
+        // Update CSS variable in the document root
         document.documentElement.style.setProperty('--primary', primary);
         document.documentElement.style.setProperty('--primary-dark', primaryDark);
 
-        /**
         if (image) {
             document.documentElement.style.setProperty('--logo', `url(${image})`);
         }
-            */
 
-        // This will need to be updated to the database
+        // Save user preference to localStorage
+
         localStorage.setItem('primary', primary);
         localStorage.setItem('primary-dark', primaryDark);
-
-        /**
         if (image) {
             localStorage.setItem('logo', image);
         }
-            */
 
     };
 
+    // Initialize theme from localStorage when component mounts
     useEffect(() => {
         const savedPrimary = localStorage.getItem('primary');
         const savedDark = localStorage.getItem('primary-dark');
-
-        if (savedDark && savedPrimary) {
-            changeThemeColor(savedPrimary, savedDark);
+        const logo = localStorage.getItem('logo');
+        if (savedDark && savedPrimary && logo) {
+            changeThemeColor(savedPrimary, savedDark, logo || undefined);
         }
     }, []);
 
-    // Return Role-Specific menus
+    // User specific renders
 
     return (
         <>
@@ -126,7 +132,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                                         className="color-option"
                                         style={{ backgroundColor: color.primary }}
                                         title={color.name}
-                                        onClick={() => changeThemeColor(color.primary, color.primaryDark)}
+                                        onClick={() => changeThemeColor(color.primary, color.primaryDark, color.image)}
                                         aria-label={`Set theme to ${color.name}`}
                                     />
                                 ))}
@@ -136,7 +142,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                         {/* Authentication actions */}
                         <div className="auth-actions">
                             {isAuthenticated ? (
-                                <button className="logout-button">
+                                <button className="logout-button" onClick={handleLogout}>
                                     Log Out
                                 </button>
                             ) : (
@@ -156,7 +162,6 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
             </div>
         </>
     );
-
 };
 
 export default Menu;
