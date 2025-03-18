@@ -73,10 +73,10 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
     useEffect(() => {
         const savedPrimary = localStorage.getItem('primary');
         const savedDark = localStorage.getItem('primary-dark');
-        /** const logo = localStorage.getItem('logo');
-        if (savedDark && savedPrimary && logo) {
-            changeThemeColor(savedPrimary, savedDark, logo || undefined);
-        } */
+
+        if (savedDark && savedPrimary) {
+            changeThemeColor(savedPrimary, savedDark);
+        }
     }, []);
 
     // Return Role-Specific menus
