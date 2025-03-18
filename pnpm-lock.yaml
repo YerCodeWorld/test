@@ -55,7 +55,7 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
 
-  apps/homes:
+  apps/home:
     dependencies:
       '@repo/ui':
         specifier: workspace:*
