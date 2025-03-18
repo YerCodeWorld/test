@@ -62,9 +62,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <input type="submit" className={styles.secondary}>
-          Open alert
-        </input>
+
       </main>
       <footer className={styles.footer}>
         <a
