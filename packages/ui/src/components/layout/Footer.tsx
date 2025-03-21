@@ -86,7 +86,7 @@ const Footer = () => {
 
             {/* Copyright bar */}
             <div className="copyright-bar">
-                <div className="container">
+                <div className="contaiener">
                     <p>&copy; {currentYear} EduGuiders. {t('footer.rights')}</p>
                     <p>{t('footer.love')} <span className="heart">♥</span> {t('footer.loveContinue')}</p>
                 </div>

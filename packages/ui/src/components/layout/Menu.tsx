@@ -8,6 +8,7 @@ import teal from '../../images/full/teal.png';
 import warmPink from '../../images/full/warmPink.png';
 // import coral from '../../images/full/coral.png';
 import '../../styles/components/layout/menu.css';
+import {toast} from "sonner";
 
 interface MenuProps {
     isOpen: boolean;
@@ -60,6 +61,11 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
         // Update CSS variable in the document root
         document.documentElement.style.setProperty('--primary', primary);
         document.documentElement.style.setProperty('--primary-dark', primaryDark);
+
+        toast.success("Color Changed!", {
+            description: `Color was succesfully changed for ${primary}`,
+            duration: 2000
+        });
 
         if (image) {
             document.documentElement.style.setProperty('--logo', `url(${image})`);
