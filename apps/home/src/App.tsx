@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from 'sonner';
 import MainLayout from "@repo/ui/components/layout/MainLayout";
 // import './App.css';
 
@@ -17,6 +18,9 @@ function App() {
 
     return (
         <Router>
+
+            <Toaster position="bottom-center" richColors></Toaster>
+
             {/* Suspense with loading spinner page */}
             <Suspense>
                 <Routes>

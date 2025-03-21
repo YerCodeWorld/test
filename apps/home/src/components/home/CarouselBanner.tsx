@@ -21,6 +21,7 @@ interface CarouselBannerProps {
     children?: ReactNode;
 }
 
+
 const CarouselBanner = ({ children }: CarouselBannerProps) => {
 
     const { t } = useI18n();
@@ -146,7 +147,7 @@ const CarouselBanner = ({ children }: CarouselBannerProps) => {
             className="carousel-banner"
             aria-roledescription="carousel"
             aria-label="Featured content"
-        >`
+        >
             <div className="slides-container">
                 {slides.map((slide, index) => (
                     <div
@@ -217,3 +218,4 @@ const CarouselBanner = ({ children }: CarouselBannerProps) => {
 };
 
 export default CarouselBanner;
+
