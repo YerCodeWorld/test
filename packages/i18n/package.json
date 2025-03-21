@@ -1,29 +1,33 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/i18n",
   "version": "0.0.0",
   "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "exports": {
-    "./*": "./src/*.tsx"
+    "./*": "./src/index.ts",
+    "./locales/*": "./src/locales/*"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
+  "dependencies": {
+    "i18next": "^23.10.0",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "react-i18next": "^14.0.5"
+  },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/i18n": "workspace:*",
-    "@turbo/gen": "^2.4.4",
     "@types/node": "^22.13.9",
     "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
     "eslint": "^9.22.0",
     "typescript": "5.8.2"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router-dom": "^7.3.0"
+  "peerDependencies": {
+    "react": "^19.0.0"
   }
 }
+

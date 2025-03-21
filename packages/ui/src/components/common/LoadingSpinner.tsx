@@ -13,12 +13,14 @@ interface LoadingSpinnerProps {
     fullPage?: boolean;
 }
 
+/*
 const loadingMessages = [
     "What happens when you mix a rabbit with a chick?.",
     "There is only one definition of beauty... They say it's Yahir.",
     "Last time I practiced French Obama was president. So don't worry if you don't either.",
     "I am tired of writing random stuff in here."
 ]
+*/
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
                                                            size = 'medium',

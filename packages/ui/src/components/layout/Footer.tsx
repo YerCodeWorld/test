@@ -1,10 +1,11 @@
 // src/components/layout/Footer.tsx
 
 import { Link } from 'react-router-dom';
+import { useI18n } from "@repo/i18n/src/index";
 import '../../styles/components/layout/footer.css';
 
 const Footer = () => {
-
+    const { t } = useI18n();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -14,10 +15,7 @@ const Footer = () => {
                     {/* Company information */}
                     <div className="footer-section about">
                         <h3>EduGuiders</h3>
-                        <p>
-                            A comprehensive platform connecting students with expert teachers.
-                            Our mission is to make finding the right educational guide easier than ever.
-                        </p>
+                        <p>{t('footer.subtitle')}</p>
                         <div className="social-links">
                             <a href="#" aria-label="Facebook">
                                 <i className="fa fa-facebook"></i>
@@ -36,49 +34,49 @@ const Footer = () => {
 
                     {/* Quick links */}
                     <div className="footer-section links">
-                        <h3>Quick Links</h3>
+                        <h3>{t('footer.quickLinks')}</h3>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/teachers">Teachers</Link></li>
-                            <li><Link to="/articles">Journal</Link></li>
-                            <li><Link to="/courses">Courses</Link></li>
-                            <li><Link to="/games">Games</Link></li>
-                            <li><Link to="/competitions">Competitions</Link></li>
+                            <li><Link to="/">{t('navigation.home')}</Link></li>
+                            <li><Link to="/teachers">{t('navigation.teachers')}</Link></li>
+                            <li><Link to="/articles">{t('navigation.journal')}</Link></li>
+                            <li><Link to="/courses">{t('navigation.courses')}</Link></li>
+                            <li><Link to="/games">{t('navigation.games')}</Link></li>
+                            <li><Link to="/competitions">{t('navigation.competitions')}</Link></li>
                         </ul>
                     </div>
 
                     {/* Support links */}
                     <div className="footer-section links">
-                        <h3>Support</h3>
+                        <h3>{t('footer.support.title')}</h3>
                         <ul>
-                            <li><Link to="/help">Help Center</Link></li>
-                            <li><Link to="/faq">FAQ</Link></li>
-                            <li><Link to="/contact">Contact Us</Link></li>
-                            <li><Link to="/terms">Terms of Service</Link></li>
-                            <li><Link to="/privacy">Privacy Policy</Link></li>
+                            <li><Link to="/help">{t('footer.support.help')}</Link></li>
+                            <li><Link to="/faq">{t('footer.support.FAQ')}Q</Link></li>
+                            <li><Link to="/contact">{t('footer.support.contact')}</Link></li>
+                            <li><Link to="/terms">{t('footer.support.terms')}</Link></li>
+                            <li><Link to="/privacy">{t('footer.support.privacy')}</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact information */}
                     <div className="footer-section contact">
-                        <h3>Contact Us</h3>
+                        <h3>{t('footer.contact')}</h3>
                         <address>
-                            <p><i className="fa fa-map-marker"></i> 123 Education Street, Knowledge City</p>
-                            <p><i className="fa fa-phone"></i> (123) 456-7890</p>
-                            <p><i className="fa fa-envelope"></i> contact@eduguiders.com</p>
+                            <p><i className="fa fa-map-marker"></i> La Romana, Calle Espaillat #169</p>
+                            <p><i className="fa fa-phone"></i> +1 (829) 333 6925</p>
+                            <p><i className="fa fa-envelope"></i> yahiradolfo39@gmail.com</p>
                         </address>
 
                         {/* Newsletter subscription */}
                         <div className="newsletter">
-                            <h4>Subscribe to our newsletter</h4>
+                            <h4>{t('')}</h4>
                             <form className="newsletter-form">
                                 <input
                                     type="email"
-                                    placeholder="Your email address"
+                                    placeholder={t('footer.placeholder')}
                                     required
                                 />
                                 <button type="submit">
-                                    Subscribe
+                                    {t('footer.subscribe')}
                                 </button>
                             </form>
                         </div>
@@ -89,8 +87,8 @@ const Footer = () => {
             {/* Copyright bar */}
             <div className="copyright-bar">
                 <div className="container">
-                    <p>&copy; {currentYear} EduGuiders. All rights reserved.</p>
-                    <p>Designed with <span className="heart">♥</span> for educators and learners</p>
+                    <p>&copy; {currentYear} EduGuiders. {t('footer.rights')}</p>
+                    <p>{t('footer.love')} <span className="heart">♥</span> {t('footer.loveContinue')}</p>
                 </div>
             </div>
         </footer>

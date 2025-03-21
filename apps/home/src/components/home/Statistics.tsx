@@ -1,5 +1,6 @@
 // src/components/home/Statistics.tsx
 import { useState, useEffect, useRef } from 'react';
+import { useI18n } from '@repo/i18n/src/index';
 import '../../styles/home/statistics.css';
 
 interface StatItem {
@@ -13,6 +14,8 @@ interface StatItem {
 }
 
 const Statistics = () => {
+
+    const { t } = useI18n();
     // Track whether counting animation has started
     const [animationStarted, setAnimationStarted] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
@@ -22,7 +25,7 @@ const Statistics = () => {
     const stats: StatItem[] = [
         {
             id: 'teachers',
-            label: 'Expert Teachers',
+            label: `${t('statistics.teachers')}`,
             value: 0,
             prefix: '+',
             duration: 2000,
@@ -30,7 +33,7 @@ const Statistics = () => {
         },
         {
             id: 'students',
-            label: 'Active Students',
+            label: `${t('statistics.students')}`,
             value: 0,
             prefix: '+',
             duration: 2500,
@@ -38,21 +41,21 @@ const Statistics = () => {
         },
         {
             id: 'courses',
-            label: 'Courses',
+            label: `${t('statistics.courses')}`,
             value: 0,
             duration: 1800,
             icon: 'course-icon',
         },
         {
             id: 'countries',
-            label: 'Countries',
+            label: `${t('statistics.countries')}`,
             value: 0,
             duration: 1500,
             icon: 'globe-icon',
         },
         {
             id: 'satisfaction',
-            label: 'Satisfaction Rate',
+            label: `${t('statistics.satisfaction')}`,
             value: 0,
             suffix: '%',
             duration: 2200,
@@ -60,7 +63,7 @@ const Statistics = () => {
         },
         {
             id: 'classes',
-            label: 'Classes Completed',
+            label: `${t('statistics.classes')}`,
             value: 0,
             prefix: '+',
             duration: 2800,
@@ -142,8 +145,8 @@ const Statistics = () => {
     return (
         <section className="statistics-section" ref={sectionRef}>
             <div className="statistics-header">
-                <h2>Our Impact by the Numbers</h2>
-                <p>Growing stronger every day with educators and learners from around the world</p>
+                <h2>{t('statistics.title')}</h2>
+                <p>{t('statistics.subtitle')}</p>
             </div>
 
             <div className="statistics-grid">

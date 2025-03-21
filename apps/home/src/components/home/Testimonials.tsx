@@ -1,5 +1,6 @@
 // src/components/home/Testimonials.tsx
 import { useState, useEffect, useCallback } from 'react';
+import { useI18n } from '@repo/i18n/src/index';
 import '../../styles/home/testimonials.css';
 
 interface Testimonial {
@@ -12,6 +13,7 @@ interface Testimonial {
 }
 
 const Testimonials = () => {
+    const { t } = useI18n();
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -20,7 +22,7 @@ const Testimonials = () => {
         {
             id: 1,
             name: 'Sarah J.',
-            role: 'EduExplorer',
+            role: `${t('testimonies.role.student')}`,
             avatar: '/assets/avatars/student1.jpg',
             quote: 'Finding the right math teacher changed everything for me. I went from struggling with algebra to acing calculus in just one semester!',
             affiliation: 'Computer Science Major'
@@ -28,7 +30,7 @@ const Testimonials = () => {
         {
             id: 2,
             name: 'Michael T.',
-            role: 'EduGuider',
+            role: `${t('testimonies.role.teacher')}`,
             avatar: '/assets/avatars/teacher1.jpg',
             quote: 'As an educator, I\'ve found an amazing community of students eager to learn. The platform makes scheduling and communication seamless.',
             affiliation: 'Physics Instructor'
@@ -36,14 +38,14 @@ const Testimonials = () => {
         {
             id: 3,
             name: 'Elena R.',
-            role: 'Parent',
+            role: `${t('testimonies.role.parent')}`,
             avatar: '/assets/avatars/parent1.jpg',
             quote: 'My daughter\'s confidence has skyrocketed since finding her Spanish tutor on this platform. The quality of teachers here is exceptional.',
         },
         {
             id: 4,
             name: 'Dr. James W.',
-            role: 'EduGuider',
+            role: `${t('testimonies.role.teacher')}`,
             avatar: '/assets/avatars/teacher2.jpg',
             quote: 'After 20 years in academia, I wanted to reach more students. This platform has allowed me to connect with learners from around the world.',
             affiliation: 'History Professor'
@@ -51,7 +53,7 @@ const Testimonials = () => {
         {
             id: 5,
             name: 'Aisha K.',
-            role: 'EduExplorer',
+            role: `${t('testimonies.role.student')}`,
             avatar: '/assets/avatars/student2.jpg',
             quote: 'The personalized approach to learning has made all the difference. My piano skills have improved dramatically in just a few months.',
             affiliation: 'Music Enthusiast'
@@ -110,8 +112,8 @@ const Testimonials = () => {
     return (
         <section id="testimonies" className="testimonials-section">
             <div className="testimonials-header">
-                <h2>What Our Community Says</h2>
-                <p>Hear from students, teachers, and parents who have found success on our platform</p>
+                <h2>{t('testimonies.title')}</h2>
+                <p>{t('testimonies.subtitle')}</p>
             </div>
 
             <div className="testimonials-carousel">

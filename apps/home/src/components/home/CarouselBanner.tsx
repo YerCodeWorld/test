@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import river from '../../assets/images/river.jpg';
 import park from '../../assets/images/park.jpg';
 import nature from '../../assets/images/nature.jpg';
+import { useI18n } from '@repo/i18n/src/index';
 import '../../styles/home/carouselBanner.css';
 
 interface Slide {
@@ -21,6 +22,9 @@ interface CarouselBannerProps {
 }
 
 const CarouselBanner = ({ children }: CarouselBannerProps) => {
+
+    const { t } = useI18n();
+
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -28,37 +32,37 @@ const CarouselBanner = ({ children }: CarouselBannerProps) => {
     const slides: Slide[] = [
         {
             id: 1,
-            title: 'Welcome To EduGuiders',
-            subtitle: 'Get to manage your dreamed skill with wonderful instructors and resources',
+            title: `${t('carousel.slide1.title')}`,
+            subtitle: `${t('carousel.slide1.subtitle')}`,
             backgroundImage: '/assets/images/banner1.jpg',
-            buttonText: 'Get Started',
+            buttonText: `${t('carousel.slide1.buttonText')}`,
             buttonLink: '#explore',
             image: park
         },
         {
             id: 2,
-            title: 'Find Your EduGuider',
-            subtitle: 'Connect with expert educators who can help you achieve your learning goals',
+            title: `${t('carousel.slide2.title')}`,
+            subtitle: `${t('carousel.slide2.subtitle')}`,
             backgroundImage: '/assets/images/banner2.jpg',
-            buttonText: 'Browse Teachers',
+            buttonText: `${t('carousel.slide2.buttonText')}`,
             buttonLink: '/teachers',
             image: nature
         },
         {
             id: 3,
-            title: 'Learn At Your Own Pace',
-            subtitle: 'Flexible scheduling and personalized learning paths for every student',
+            title: `${t('carousel.slide3.title')}`,
+            subtitle: `${t('carousel.slide3.subtitle')}`,
             backgroundImage: '/assets/images/banner3.jpg',
-            buttonText: 'Explore Courses',
+            buttonText: `${t('carousel.slide3.buttonText')}`,
             buttonLink: '/cons/courses',
             image: park
         },
         {
-            id: 3,
-            title: 'Do not take our words',
-            subtitle: 'See what our users have to say instead',
+            id: 4,   // Was set to 3 just like the previous. React was screaming errors with this thing. (Mapping function)
+            title: `${t('carousel.slide4.title')}`,
+            subtitle: `${t('carousel.slide4.subtitle')}`,
             backgroundImage: '/assets/images/banner3.jpg',
-            buttonText: 'See Testimonies',
+            buttonText: `${t('carousel.slide4.buttonText')}`,
             buttonLink: '#testimonies',
             image: river
         },
