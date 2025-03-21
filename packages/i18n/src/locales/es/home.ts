@@ -26,7 +26,7 @@ export default {
         },
         slide3: {
             title: "Aprende por tus Necesidades",
-            subtitle: "Horarios felixbles y cursos basados en necesidades reales y especígicas",
+            subtitle: "Horarios flexibles y cursos basados en necesidades reales y específicas",
             buttonText: "Explorar Cursos",
         },
         slide4: {

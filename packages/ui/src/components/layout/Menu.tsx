@@ -1,7 +1,6 @@
 // src/components/layout/Menu.tsx
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useI18n } from '@repo/i18n/src/index';
 import blue from '../../images/full/blue.png';
 import lavender from '../../images/full/lavender.png';
 import purple from '../../images/full/purple.png';
@@ -26,7 +25,6 @@ const themeColors = [
 
 const Menu = ({ isOpen, onClose }: MenuProps) => {
     // const { user, isAuthenticated, logout } = useAuth();
-    const { t } = useI18n();
     const isAuthenticated: boolean = true;
 
     // Handle Escape key press to close menu
@@ -58,7 +56,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
     };
 
     // Function to change theme color
-    const changeThemeColor = (primary: string, primaryDark: string, image: string | undefined) => {
+    const changeThemeColor = (primary: string, primaryDark: string, image: any) => {
         // Update CSS variable in the document root
         document.documentElement.style.setProperty('--primary', primary);
         document.documentElement.style.setProperty('--primary-dark', primaryDark);
@@ -115,11 +113,11 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                         <div className="main-links">
                             <ul>
                                 <li><Link to="/" onClick={onClose}>Home</Link></li>
-                                <li><Link to="/teachers" onClick={onClose}>{t('navigation.teachers')}</Link></li>
-                                <li><Link to="/cons/blog" onClick={onClose}>{t('navigation.journal')}l</Link></li>
-                                <li><Link to="/cons/games" onClick={onClose}>{t('navigation.games')}</Link></li>
-                                <li><Link to="/cons/courses" onClick={onClose}>{t('navigation.courses')}</Link></li>
-                                <li><Link to="/cons/competition" onClick={onClose}>{t('navigation.competitions')}</Link></li>
+                                <li><Link to="/teachers" onClick={onClose}>Teachers</Link></li>
+                                <li><Link to="/cons/blog" onClick={onClose}>Journal</Link></li>
+                                <li><Link to="/cons/games" onClick={onClose}>Games</Link></li>
+                                <li><Link to="/cons/courses" onClick={onClose}>Courses</Link></li>
+                                <li><Link to="/cons/competition" onClick={onClose}>Competitions</Link></li>
                             </ul>
                         </div>
 
@@ -145,15 +143,15 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                         <div className="auth-actions">
                             {isAuthenticated ? (
                                 <button className="logout-button" onClick={handleLogout}>
-                                    {t('buttons.logout')}
+                                    Log Out
                                 </button>
                             ) : (
                                 <div className="login-actions">
                                     <Link to="/login" className="login-button" onClick={onClose}>
-                                        {t('buttons.login')}
+                                        Log In
                                     </Link>
                                     <Link to="/register" className="register-button" onClick={onClose}>
-                                        {t('buttons.register')}
+                                        Register
                                     </Link>
                                 </div>
                             )}

@@ -3,6 +3,7 @@ import * as React from "react";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './../layout/Menu';
+import { useI18n } from '@repo/i18n/src/index';  // FIXME? Maybe installing the i18n package could work | It didnt. Well kind of
 // import { getInitials } from "../../methods";
 import '../../styles/components/layout/header.css';
 
@@ -11,6 +12,32 @@ import '../../styles/components/layout/header.css';
 // Add a section that indicates the current section
 
 const Header = () => {
+    // I18n stuff
+    const { t, locale, setLocale, supportedLocales } = useI18n();
+
+    // As Locale and event.target.value are not equivalent (the latter being a string), it is necessary to compare
+    // or convert somehow, and that's why I decided to create a custom hook.
+    // Btw, that "React.ChangeEvent<HTMLSelectElement>" came from the "infer type from usage". I am not that intelligent
+    const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+
+        for (const s of supportedLocales) {
+
+            // Remember event.target.value is uppercase
+            if (s.toString().toUpperCase() === event.target.value) {
+
+                // The same witchery we did in the provider for async returns
+                (async () => {
+                    await setLocale(s);
+                })().catch(err => {
+                    console.error('Failed to change language:', err)
+                });
+            }
+        }
+    }
+
+    console.log("The supported locales are the following: ", supportedLocales)
+    console.log("The current locale is the following: ", locale)
+
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = (e: React.MouseEvent) => {
@@ -35,17 +62,24 @@ const Header = () => {
                 <nav className="main-nav">
                     <ul>
                         {/* Add link to EduTeachers */}
-                        <li><Link to="/teachers">Teachers</Link></li>
-                        <li><Link to="/cons/blog">Journal</Link></li>
-                        <li><Link to="/cons/games">Games</Link></li>
-                        <li><Link to="/cons/courses">Courses</Link></li>
-                        <li><Link to="/cons/compete">Competitions</Link></li>
+                        <li><Link to="/teachers">{t('navigation.teachers')}</Link></li>
+                        <li><Link to="/cons/blog">{t('navigation.journal')}</Link></li>
+                        <li><Link to="/cons/games">{t('navigation.games')}</Link></li>
+                        <li><Link to="/cons/courses">{t('navigation.courses')}</Link></li>
+                        <li><Link to="/cons/compete">{t('navigation.competitions')}</Link></li>
                     </ul>
                 </nav>
 
                 <div className="auth-buttons">
-                    <Link to="/login" className="login-button">Log In</Link>
-                    <Link to="/register" className="register-button">Register</Link>
+                    <Link to="/login" className="login-button">{t('buttons.login')}</Link>
+                    <select className="language-selector" onChange={(event) => (changeLanguage(event))}>
+                        {/*Update options dynamically based on available languages*/}
+                        {supportedLocales.map((code) => (
+                            <option key={code}>
+                                {code.toUpperCase()}
+                            </option>
+                        ))}
+                    </select>
                     <button className="menu-toggle" onClick={toggleMenu}>
                         <span className="menu-icon">☰</span>
                     </button>
@@ -59,3 +93,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// { /**className={locale === code ? 'active' : ''}**/ }

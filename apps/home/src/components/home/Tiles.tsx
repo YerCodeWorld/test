@@ -1,6 +1,7 @@
 // src/components/home/Tiles.tsx
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useI18n } from "@repo/i18n/src/i18n";
 import teaching from '../../assets/images/teaching.jpg';
 import articles from '../../assets/images/articles.png';
 import competition from '../../assets/images/compete.jpg';
@@ -22,52 +23,54 @@ interface TileItem {
 const Tiles = () => {
     const tilesRef = useRef<HTMLElement>(null);
 
+    const { t } = useI18n();
+
     // Tile data - in a production app, this would come from an API or CMS
     const tilesData: TileItem[] = [
         {
             id: 'teachers',
-            title: 'EduGuiders',
-            description: 'Connect with top-rated professional educators',
+            title: `${t('tiles.tile1.title')}`,
+            description: `${t('tiles.tile1.subtitle')}`,
             image: teaching,
             link: '/teachers',
             color: '#8d82c4',
         },
         {
             id: 'courses',
-            title: 'EduCourses',
-            description: 'Follow specialized learning paths designed by experts',
+            title: `${t('tiles.tile2.title')}`,
+            description: `${t('tiles.tile2.subtitle')}`,
             image: courses,
             link: '/cons/courses',
             color: '#ec8d81',
         },
         {
             id: 'articles',
-            title: 'EduBLog',
-            description: 'Read in-depth articles from educators and experts',
+            title: `${t('tiles.tile3.title')}`,
+            description: `${t('tiles.tile3.subtitle')}`,
             image: articles,
             link: '/cons/blog',
             color: '#6fc3df',
         },
         {
             id: 'games',
-            title: 'EduGames',
-            description: 'Make learning fun through educational games',
+            title: `${t('tiles.tile4.title')}`,
+            description: `${t('tiles.tile4.subtitle')}`,
             image: games,
             link: '/cons/games',
             color: '#e7b788',
         },
         {
             id: 'compete',
-            title: 'EduMatch',
-            description: 'Challenge yourself in academic competitions',
+            title: `${t('tiles.tile5.title')}`,
+            description: `${t('tiles.tile5.subtitle')}`,
             image: competition,
             link: '/cons/compete',
             color: '#8ea9e8',
         },
         {
             id: 'discussion',
-            title: 'EduChat',
-            description: 'Join the community and share your ideas',
+            title: `${t('tiles.tile6.title')}`,
+            description: `${t('tiles.tile6.subtitle')}`,
             image: discussion,
             link: '/cons/discuss',
             color: '#87c5a4',
@@ -112,8 +115,8 @@ const Tiles = () => {
     return (
         <section id="explore" className="tiles-section" ref={tilesRef}>
             <div className="section-header">
-                <h2>Explore Our Platform</h2>
-                <p>Discover all the ways EduGuiders can help you learn and grow</p>
+                <h2>{t('tiles.title')}</h2>
+                <p>{t('tiles.subtitle')}</p>
             </div>
 
             <div className="tiles-container">
@@ -133,7 +136,7 @@ const Tiles = () => {
                                 <p>{tile.description}</p>
                             </header>
                             <Link to={tile.link} className="tile-link" aria-label={`Learn more about ${tile.title}`}>
-                                <span className="link-text">Learn More</span>
+                                <span className="link-text">{t('tiles.explore')}</span>
                                 <span className="link-icon" aria-hidden="true">→</span>
                             </Link>
                         </div>
