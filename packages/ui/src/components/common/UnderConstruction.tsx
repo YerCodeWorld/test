@@ -1,18 +1,20 @@
 // packages/ui/src/components/common/UnderConstruction.tsx
 import React from 'react';
-import '../../styles/common/underConstruction.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../../styles/components/common/underConstruction.css';
 
 interface UnderConstructionProps {
     title?: string;
     message?: string;
     iconName?: string;
+    link?: React.HTMLAttributes<HTMLAnchorElement>;
     estimatedCompletion?: string;
 }
 
 const UnderConstruction: React.FC<UnderConstructionProps> = ({
                                                                  title = 'Coming Soon',
                                                                  message = 'This feature is currently under development and will be available soon.' +
-                                                                 'If you want to know better over what it is about, share ideas or help with develpment, check the following link:',
+                                                                 'If you want to know better over what it is about, share ideas or help with development, check the following link:',
                                                                  iconName = 'tools',
                                                                  estimatedCompletion
                                                              }) => {

@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from "@repo/i18n/src/i18n";
+
 import teaching from '../../assets/images/teaching.jpg';
 import articles from '../../assets/images/articles.png';
 import competition from '../../assets/images/compete.jpg';
@@ -32,7 +33,7 @@ const Tiles = () => {
             title: `${t('tiles.tile1.title')}`,
             description: `${t('tiles.tile1.subtitle')}`,
             image: teaching,
-            link: '/teachers',
+            link: '/construction/teachers',
             color: '#8d82c4',
         },
         {
@@ -40,7 +41,7 @@ const Tiles = () => {
             title: `${t('tiles.tile2.title')}`,
             description: `${t('tiles.tile2.subtitle')}`,
             image: courses,
-            link: '/cons/courses',
+            link: '/construction/courses',
             color: '#ec8d81',
         },
         {
@@ -48,7 +49,7 @@ const Tiles = () => {
             title: `${t('tiles.tile3.title')}`,
             description: `${t('tiles.tile3.subtitle')}`,
             image: articles,
-            link: '/cons/blog',
+            link: '/construction/blog',
             color: '#6fc3df',
         },
         {
@@ -56,7 +57,7 @@ const Tiles = () => {
             title: `${t('tiles.tile4.title')}`,
             description: `${t('tiles.tile4.subtitle')}`,
             image: games,
-            link: '/cons/games',
+            link: '/construction/games',
             color: '#e7b788',
         },
         {
@@ -64,7 +65,7 @@ const Tiles = () => {
             title: `${t('tiles.tile5.title')}`,
             description: `${t('tiles.tile5.subtitle')}`,
             image: competition,
-            link: '/cons/compete',
+            link: '/construction/match',
             color: '#8ea9e8',
         },
         {
@@ -72,7 +73,7 @@ const Tiles = () => {
             title: `${t('tiles.tile6.title')}`,
             description: `${t('tiles.tile6.subtitle')}`,
             image: discussion,
-            link: '/cons/discuss',
+            link: '/construction/discussion',
             color: '#87c5a4',
         },
     ];
