@@ -1,6 +1,6 @@
 // src/components/home/Statistics.tsx
 import { useState, useEffect, useRef } from 'react';
-import { useI18n } from '@repo/i18n/src/index';
+import { useI18n } from '@repo/i18n';
 import '../../styles/home/statistics.css';
 
 interface StatItem {

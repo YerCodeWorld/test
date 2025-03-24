@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 
 import { Link } from 'react-router-dom';
-import { useI18n } from "@repo/i18n/src/index";
+import { useI18n } from "@repo/i18n";
 import '../../styles/components/layout/footer.css';
 
 const Footer = () => {

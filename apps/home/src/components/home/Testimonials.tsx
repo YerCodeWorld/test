@@ -1,6 +1,6 @@
 // src/components/home/Testimonials.tsx
 import { useState, useEffect, useCallback } from 'react';
-import { useI18n } from '@repo/i18n/src/index';
+import { useI18n } from '@repo/i18n';
 import '../../styles/home/testimonials.css';
 
 interface Testimonial {

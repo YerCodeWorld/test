@@ -1,7 +1,7 @@
 // src/components/home/Tiles.tsx
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useI18n } from "@repo/i18n/src/i18n";
+import { useI18n } from "@repo/i18n";
 
 import teaching from '../../assets/images/teaching.jpg';
 import articles from '../../assets/images/articles.png';

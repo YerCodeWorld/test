@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import river from '../../assets/images/river.jpg';
 import park from '../../assets/images/park.jpg';
 import nature from '../../assets/images/nature.jpg';
-import { useI18n } from '@repo/i18n/src/index';
+import { useI18n } from '@repo/i18n';
 import '../../styles/home/carouselBanner.css';
 
 interface Slide {
