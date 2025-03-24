@@ -1,10 +1,12 @@
 import {useEffect} from "react";
+import { useI18n } from "@repo/i18n";
 import '../../styles/components/common/Login.css';
 
 
 const LoginPage = () => {
 
     // Will use this as a reminder that setting a useEffect for isLoading can be really useful
+    const{ t } = useI18n();
 
     useEffect(() => {
         document.title = "EduGuiders - Login";
@@ -15,17 +17,17 @@ const LoginPage = () => {
             <div className="login-container">
                 <div className="first-child">
                     <div className="login-header">
-                        <h1>Create Your Account</h1>
+                        <h1>{t('login.main')}</h1>
                     </div>
                     <hr />
                     <div className="Oauth-links">
                         <button className="Oauth google">
                             <span className="Oauth-google-icon">G</span>
-                            <span>Sign up with Google</span>
+                            <span>{t('login.google')}</span>
                         </button>
                         <button className="Oauth facebook">
                             <span className="Oauth-facebook-icon">f</span>
-                            <span>Sign up with Facebook</span>
+                            <span>{t('login.facebook')}</span>
                         </button>
                     </div>
                 </div>
@@ -34,11 +36,8 @@ const LoginPage = () => {
                         <div className="message-icon">
                             <i className="fas fa-user-plus"></i>
                         </div>
-                        <h2>Start your learning journey today</h2>
-                        <p>
-                            Join thousands of students and teachers on our platform
-                            and take the next step in your educational growth.
-                        </p>
+                        <h2>{t('login.message')}</h2>
+                        <p>{t('login.paragraph')}</p>
                     </div>
                 </div>
             </div>

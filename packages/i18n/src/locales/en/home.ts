@@ -106,5 +106,14 @@ export default {
         rights: "All rights reserved.",
         love: "Designed with",
         loveContinue: "for educators and learners"
+    },
+
+    login: {
+        main: "Create your account",
+        google: "Sign up with Google",
+        facebook: "Sign up with Facebook",
+
+        message: "Start your learning journey today",
+        paragraph: " Join thousands of students and teachers on our platform and take the next step in your educational growth."
     }
 };

@@ -105,5 +105,14 @@ export default {
         rights: "Todos los derechos reservados.",
         love: "Diseñado con",
         loveContinue: "para educadores y estudiantes."
+    },
+
+    login: {
+        main: "Crea tu cuenta",
+        google: "Iniciar sesión con Google",
+        facebook: "Iniciar sesión con Facebook",
+
+        message: "Empieza Tu Viaje de Aprendizaje Hoy",
+        paragraph: "Únete a aquellos que han empezado sus caminos para encontrar su estilo de aprendizaje y crecimiento."
     }
 };
