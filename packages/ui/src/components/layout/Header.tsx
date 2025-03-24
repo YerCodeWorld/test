@@ -3,7 +3,7 @@ import * as React from "react";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './../layout/Menu';
-import { useI18n } from '@repo/i18n/src/index';  // FIXME? Maybe installing the i18n package could work | It didnt. Well kind of
+import { useI18n } from '@repo/i18n';
 // import { getInitials } from "../../methods";
 import '../../styles/components/layout/header.css';
 
@@ -62,11 +62,11 @@ const Header = () => {
                 <nav className="main-nav">
                     <ul>
                         {/* Add link to EduTeachers */}
-                        <li><Link to="/teachers">{t('navigation.teachers')}</Link></li>
-                        <li><Link to="/cons/blog">{t('navigation.journal')}</Link></li>
-                        <li><Link to="/cons/games">{t('navigation.games')}</Link></li>
-                        <li><Link to="/cons/courses">{t('navigation.courses')}</Link></li>
-                        <li><Link to="/cons/compete">{t('navigation.competitions')}</Link></li>
+                        <li><Link to="/construction/teachers">{t('navigation.teachers')}</Link></li>
+                        <li><Link to="/construction/blog">{t('navigation.journal')}</Link></li>
+                        <li><Link to="/construction/games">{t('navigation.games')}</Link></li>
+                        <li><Link to="/construction/courses">{t('navigation.courses')}</Link></li>
+                        <li><Link to="/construction/match">{t('navigation.competitions')}</Link></li>
                     </ul>
                 </nav>
 

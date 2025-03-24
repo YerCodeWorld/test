@@ -63,7 +63,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
         document.documentElement.style.setProperty('--primary-dark', primaryDark);
 
         toast.success("Color Changed!", {
-            description: `Color was succesfully changed for ${primary}`,
+            description: `Color was successfully changed for ${primary}`,
             duration: 2000
         });
 
@@ -119,11 +119,12 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                         <div className="main-links">
                             <ul>
                                 <li><Link to="/" onClick={onClose}>Home</Link></li>
-                                <li><Link to="/teachers" onClick={onClose}>Teachers</Link></li>
-                                <li><Link to="/cons/blog" onClick={onClose}>Journal</Link></li>
-                                <li><Link to="/cons/games" onClick={onClose}>Games</Link></li>
-                                <li><Link to="/cons/courses" onClick={onClose}>Courses</Link></li>
-                                <li><Link to="/cons/competition" onClick={onClose}>Competitions</Link></li>
+                                <li><Link to="/construction/teachers" onClick={onClose}>Teachers</Link></li>
+                                <li><Link to="/construction/courses" onClick={onClose}>Courses</Link></li>
+                                <li><Link to="/construction/blog" onClick={onClose}>Journal</Link></li>
+                                <li><Link to="/construction/discussion" onClick={onClose}>Discussion</Link></li>
+                                <li><Link to="/construction/games" onClick={onClose}>Games</Link></li>
+                                <li><Link to="/construction/match" onClick={onClose}>Competitions</Link></li>
                             </ul>
                         </div>
 
