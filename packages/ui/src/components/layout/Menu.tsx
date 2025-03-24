@@ -157,9 +157,6 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                                     <Link to="/login" className="login-button" onClick={onClose}>
                                         Log In
                                     </Link>
-                                    <Link to="/register" className="register-button" onClick={onClose}>
-                                        Register
-                                    </Link>
                                 </div>
                             )}
                         </div>

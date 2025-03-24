@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import {useEffect} from "react";
 import '../../styles/components/common/Login.css';
 
 
