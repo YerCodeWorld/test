@@ -1,5 +1,4 @@
 // ...
-import React from 'react';
 
 /**
  * Here in the types we are supposed to make the layout for the whole routing system in our architecture.
@@ -46,13 +45,6 @@ export interface AppRouteConfig {
     appName?: AppName;
     // Map a route /route with its configuration
     routes: Record<string, RouteConfig>;
-}
-
-// This has the types for the actual implementation
-export interface ApplicationRoute {
-    path: string,
-    element: React.ReactNode;
-    children?: ApplicationRoute;
 }
 
 /**

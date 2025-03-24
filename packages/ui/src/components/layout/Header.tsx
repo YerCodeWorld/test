@@ -75,7 +75,7 @@ const Header = () => {
                     <select className="language-selector" onChange={(event) => (changeLanguage(event))}>
                         {/*Update options dynamically based on available languages*/}
                         {supportedLocales.map((code) => (
-                            <option key={code}>
+                            <option className="child" key={code}>
                                 {code.toUpperCase()}
                             </option>
                         ))}

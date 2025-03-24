@@ -43,7 +43,7 @@ import { RouteConfigMap, AppName } from "./types";
          routes: {
              // I will come to this every time a new route comes out in the app, this is... you know, spontaneous
             home: { path: '/', label: 'EduGuiders - Your EduPlatform' },
-
+            login: { path: '/login', label: 'Login' },
              // I believe the about page will have its quirks based on the parent app
              about: { path: '/about/home', label: 'Home - About' },
          }

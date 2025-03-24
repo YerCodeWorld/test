@@ -37,9 +37,9 @@ export default {
     },
 
     tiles: {
-        title: "Explora Nuestra Plataforma",
-        subtitle: "Descubre todas las maneras en la que EduGuiders te puede ayudar a aprender y crecer",
-        explore: "Explorar",
+        title: "Explore Our Platform",
+        subtitle: "Discover all the ways EduGuiders can help you learn and grow",
+        explore: "Explore",
         tile1: {
             title: "EduTeachers",
             subtitle: "Connect with top-rated professional educators",

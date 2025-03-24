@@ -26,10 +26,13 @@
 
         /*  TO IMPLEMENT AS WELL
 
-        --logoL url('')
+
 
         */
+    --logo: url('packages/ui/src/images/full/lavender.png');
 
+    --gradient: #FF5599;
+    --gradient-dark: rgba(136, 89, 163, 0.8);
 
     /* Borders */
     --border-radius-sm: 4px;
@@ -177,6 +180,7 @@ button,
 
 
 /* Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0.2;
