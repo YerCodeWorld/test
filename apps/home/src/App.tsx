@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from 'sonner';
-import { ROUTE_CONFIG } from '@repo/router/src/index';
+import { ROUTE_CONFIG } from '@repo/router';
 import MainLayout from "@repo/ui/components/layout/MainLayout";
 import UnderConstruction from "@repo/ui/components/common/UnderConstruction";
 // import './App.css';

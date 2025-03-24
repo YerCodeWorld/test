@@ -148,15 +148,18 @@ importers:
 
   packages/router:
     dependencies:
+      i18next:
+        specifier: ^23.10.0
+        version: 23.16.8
+      i18next-browser-languagedetector:
+        specifier: ^7.2.0
+        version: 7.2.2
       react:
         specifier: ^19.0.0
         version: 19.0.0
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
-      react-router-dom:
-        specifier: ^7.3.0
-        version: 7.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-i18next:
+        specifier: ^14.0.5
+        version: 14.1.3(i18next@23.16.8)(react@19.0.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -164,18 +167,12 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
-      '@turbo/gen':
-        specifier: ^2.4.4
-        version: 2.4.4(@types/node@22.13.9)(typescript@5.8.2)
       '@types/node':
         specifier: ^22.13.9
         version: 22.13.9
       '@types/react':
         specifier: 19.0.10
         version: 19.0.10
-      '@types/react-dom':
-        specifier: 19.0.4
-        version: 19.0.4(@types/react@19.0.10)
       eslint:
         specifier: ^9.22.0
         version: 9.22.0
