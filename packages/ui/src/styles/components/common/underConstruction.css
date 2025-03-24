@@ -11,15 +11,15 @@
 }
 
 .under-construction-content {
-    margin-top: 5rem;
-    min-height: 80VH;
-    min-width: 190vh;
-    padding: 10rem;
+    margin-top: 2rem;
+    min-height: 60vh;
+    width: 100%;        /* Use width instead of min-width */
+    max-width: 800px;   /* Set a maximum width */
+    padding: 2rem;      /* Smaller padding */
     background-color: white;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-sm);
 }
-
 .construction-icon {
     font-size: 3.5rem;
     color: var(--primary);
@@ -63,37 +63,22 @@
 }
 
 @media (max-width: 768px) {
-
-    .under-construction-container {
-        min-height: 300px;
+    .under-construction-content {
+        margin-top: 1rem;
+        padding: 1.5rem;
     }
+}
 
-    .construction-icon {
-        font-size: 2.5rem;
+@media (max-width: 480px) {
+    .under-construction-content {
+        padding: 1rem;
     }
 
     .construction-title {
         font-size: 1.5rem;
     }
 
-    .auth-container {
-        display: block;
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .auth-container {
-        display: block;
-    }
-
-    .under-construction-content {
-        padding: 2rem 1rem;
-    }
-
     .construction-message {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
