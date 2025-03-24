@@ -7,6 +7,7 @@
     min-height: 100vh;
     padding: 2rem;
     text-align: center;
+    background: var(--primary);
 }
 
 .under-construction-content {
@@ -62,6 +63,7 @@
 }
 
 @media (max-width: 768px) {
+
     .under-construction-container {
         min-height: 300px;
     }
@@ -73,9 +75,20 @@
     .construction-title {
         font-size: 1.5rem;
     }
+
+    .auth-container {
+        display: block;
+    }
+
 }
 
+
 @media (max-width: 480px) {
+
+    .auth-container {
+        display: block;
+    }
+
     .under-construction-content {
         padding: 2rem 1rem;
     }

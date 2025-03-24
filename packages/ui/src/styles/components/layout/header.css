@@ -27,7 +27,7 @@
 .logo-container {
     display: block;
     width: 100px;
-    height: 70px;
+    height: 80%;
     background-image: var(--logo);
     background-size: contain;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@
 .visually-hidden {
     position: absolute;
     width: 1px;
-    height: 1px;
+    height: 80%;
     padding: 0;
     margin: -1px;
     overflow: hidden;

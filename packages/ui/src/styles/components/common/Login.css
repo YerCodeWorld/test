@@ -1,19 +1,21 @@
-/* src/styles/pages/authPages.css */
 
 hr {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    border: none;
+    border-top: 1px solid #ddd;
 }
 
-.auth-page {
-    min-height: 100vh;
+.login-page {
+    width: 100%;
+    margin-top: 70px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     padding: 2rem 1rem;
-    background-color: #f7f9fc;
+    background: var(--primary);
 }
 
-.auth-container {
+.login-container {
     display: flex;
     max-width: 1000px;
     width: 100%;
@@ -22,52 +24,46 @@ hr {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-/* Content area */
-.auth-content {
+.first-child {
     flex: 1;
     padding: 3rem 2.5rem;
     overflow-y: auto;
     max-width: 450px;
+    z-index: 10;
+    background-color: white;
     justify-content: center;
-    align-items: center;
     align-content: center;
-
 }
 
-.auth-header {
+.login-header {
     text-align: center;
     margin-bottom: 2rem;
+
 }
 
-.auth-header h1 {
+.login-header h1 {
     font-size: 2rem;
-    color: #333;
+    color: var(--primary-dark);
     margin-bottom: 0.5rem;
 }
 
-.auth-header p {
+.login-header p {
     color: #666;
     font-size: 1rem;
 }
 
-.login-icon {
-    font-size: 3.5rem;
-    color: var(--light);
-    margin-bottom: 1.5rem;
-    animation: pulse 2s infinite ease-in-out;
-}
-
 /* Social auth buttons */
-.social-auth {
+.Oauth-links {
     margin-bottom: 2rem;
 }
 
-.social-button {
+.Oauth {
     width: 100%;
     padding: 0.8rem;
-    background-color: white;
+    background: white;
     border: 1px solid #ddd;
     border-radius: 6px;
     display: flex;
@@ -80,84 +76,72 @@ hr {
     transition: background-color 0.2s ease;
 }
 
-.social-button:hover {
+.Oauth:hover {
     background-color: #f5f5f5;
 }
 
-.social-button:disabled {
+.Oauth:disabled {
     opacity: 0.7;
     cursor: not-allowed;
 }
 
-.social-icon {
+.Oauth-google-icon, .Oauth-facebook-icon {
     margin-right: 0.8rem;
     font-weight: bold;
 }
 
-.social-button.google {
+.Oauth.google {
     color: #ea4335;
 }
 
-.social-button.facebook {
+.Oauth.facebook {
     color: #3b5998;
 }
 
-/* Image side */
-.auth-image {
+/* Message side */
+.login-message {
     flex: 1;
-    background-size: cover;
-    background-position: center;
     position: relative;
-    display: none;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-            to bottom,
-            var(--primary),
-            var(--dark)
-    );
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(to bottom, var(--primary), #333);
+    color: white;
     padding: 2rem;
 }
 
-.overlay-content {
+.message-icon {
+    font-size: 4rem;
+}
+
+.message-content {
     color: white;
     text-align: center;
     max-width: 360px;
 }
 
-.overlay-content h2 {
+.message-content h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
 
-.overlay-content p {
+.message-content p {
     font-size: 1.1rem;
     line-height: 1.6;
     opacity: 0.9;
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .auth-image {
-        display: block;
-    }
-}
-
-@media (max-width: 767px) {
-    .auth-content {
-        padding: 2rem 1.5rem;
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
     }
 
-    .auth-header h1 {
-        font-size: 1.8rem;
+    .first-child {
+        max-width: 100%;
+    }
+
+    .login-message {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 }

@@ -53,7 +53,7 @@ const Header = () => {
         <header id="header">
             <div className="header-container">
 
-                <Link to="/" className="title logo-container">
+                <Link to="/" className="logo-container">
                     <span className="visually-hidden">EduGuiders</span>
                 </Link>
 
