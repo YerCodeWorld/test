@@ -6,8 +6,13 @@
 - [x] Set up i18n
 - [x] Set up notifications system
 
+## Errors and Warnings
+
+- [ ] Deal with: "4 deprecated subdependencies found: glob@7.2.3, inflight@1.0.6, lodash.get@4.4.2, rimraf@3.0.2
+  "
+
 ## Pending Features
-- [ ] Routing system
+- [ x ] Routing system
 - [ ] Authentication
 - [ ] Database
 - [ ] About page for showing formality information
