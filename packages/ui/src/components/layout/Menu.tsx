@@ -8,6 +8,8 @@ import teal from '../../images/full/teal.png';
 import warmPink from '../../images/full/warmPink.png';
 // import coral from '../../images/full/coral.png';
 import '../../styles/components/layout/menu.css';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 import {toast} from "sonner";
 
 interface MenuProps {
@@ -52,9 +54,6 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
     }, [isOpen, onClose]);
 
     // Handle logout
-    const handleLogout = () => {
-        onClose();
-    };
 
     // Function to change theme color
     const changeThemeColor = (primary: string, primaryDark: string, image: any) => {
@@ -79,6 +78,13 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
             localStorage.setItem('logo', image);
         }
 
+    };
+
+    const onLogin = () => {
+      toast.success("Success!", {
+          description: `Successfully logged in!`,
+          duration: 2000
+      });
     };
 
     // Initialize theme from localStorage when component mounts
@@ -149,9 +155,16 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                         {/* Authentication actions */}
                         <div className="auth-actions">
                             {isAuthenticated ? (
-                                <button className="logout-button" onClick={handleLogout}>
-                                    Log Out
-                                </button>
+                                <GoogleLogin onSuccess={(credentialResponse) => {
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-expect-error
+                                    const decoded = jwtDecode(credentialResponse?.credential);
+                                    console.log(decoded);
+                                    onLogin()
+                                }}
+                                             onError={() => {
+                                                 console.error('Failed to log in...');
+                                             }}></GoogleLogin>
                             ) : (
                                 <div className="login-actions">
                                     <Link to="/login" className="login-button" onClick={onClose}>

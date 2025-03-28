@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './../layout/Menu';
 import { useI18n } from '@repo/i18n';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { toast } from "sonner";
 // import { getInitials } from "../../methods";
 import '../../styles/components/layout/header.css';
 
@@ -49,6 +52,13 @@ const Header = () => {
         setMenuOpen(false);
     };
 
+    const onLogin = () => {
+        toast.success("Success!", {
+            description: `Successfully logged in!`,
+            duration: 2000
+        });
+    };
+
     return (
         <header id="header">
             <div className="header-container">
@@ -71,7 +81,16 @@ const Header = () => {
                 </nav>
 
                 <div className="auth-buttons">
-                    <Link to="/login" className="login-button">{t('buttons.login')}</Link>
+                    <GoogleLogin onSuccess={(credentialResponse) => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-expect-error
+                        const decoded = jwtDecode(credentialResponse?.credential);
+                        console.log(decoded);
+                        onLogin()
+                    }}
+                                 onError={() => {
+                                     console.error('Failed to log in...');
+                                 }}></GoogleLogin>
                     <select className="language-selector" onChange={(event) => (changeLanguage(event))}>
                         {/*Update options dynamically based on available languages*/}
                         {supportedLocales.map((code) => (
