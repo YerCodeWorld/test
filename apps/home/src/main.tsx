@@ -1,21 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { I18nProvider } from '@repo/i18n/src/index.ts';
-
-// import { getEnv } from "@repo/env";
-
 import App from './App.tsx'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import '../../../packages/ui/src/styles/global.css';
 
-// const env = getEnv();
-
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-
-      <I18nProvider>
-
-          <App />
-      </I18nProvider>
-
-  </StrictMode>,
+    <StrictMode>
+        <GoogleOAuthProvider clientId="699222450834-visusoopfoclk7nvlqmrk17f3koh6nnl.apps.googleusercontent.com">
+            <I18nProvider>
+                <App />
+            </I18nProvider>
+        </GoogleOAuthProvider>
+    </StrictMode>,
 )

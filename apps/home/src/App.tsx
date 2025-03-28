@@ -1,8 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import { Toaster } from 'sonner';
-
+import AuthCallBack from './components/AuthCallBack'
 import { ROUTE_CONFIG } from '@repo/router';
 
 // Custom components
@@ -37,6 +36,9 @@ function App() {
             <Suspense>
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
+
+                        <Route path="/auth/callback" element={<AuthCallBack />}></Route>
+
                         <Route index element={<HomePage />}></Route>
                         {/*This is NOT working for some reason, check the Login component*/}
                         <Route path={homeRoutes('login')} element={<LoginPage />}></Route>
