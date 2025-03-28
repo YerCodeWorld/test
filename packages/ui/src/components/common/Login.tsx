@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import { useI18n } from "@repo/i18n";
-import '../../styles/components/common/Login.css';
 
+import './../../styles/components/common/Login.css';
 
 const LoginPage = () => {
 
@@ -21,10 +21,12 @@ const LoginPage = () => {
                     </div>
                     <hr />
                     <div className="Oauth-links">
+
                         <button className="Oauth google">
-                            <span className="Oauth-google-icon">G</span>
+                            <span className="Oauth-google-icon">f</span>
                             <span>{t('login.google')}</span>
                         </button>
+
                         <button className="Oauth facebook">
                             <span className="Oauth-facebook-icon">f</span>
                             <span>{t('login.facebook')}</span>

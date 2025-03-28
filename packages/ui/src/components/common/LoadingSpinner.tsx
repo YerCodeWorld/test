@@ -1,7 +1,7 @@
 // packages/ui/src/components/common/LoadingSpinner.tsx
 import React from 'react';
 // import { getRandomInt } from "../../methods";
-import '../../styles/common/loadingSpinner.css'
+// import '../../styles/common/loadingSpinner.css'
 
 
 // Again with this component there's the question if we really need the props.

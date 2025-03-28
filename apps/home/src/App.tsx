@@ -1,14 +1,20 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import { Toaster } from 'sonner';
+
 import { ROUTE_CONFIG } from '@repo/router';
+
+// Custom components
 import MainLayout from "@repo/ui/components/layout/MainLayout";
 import UnderConstruction from "@repo/ui/components/common/UnderConstruction";
-import Login from "@repo/ui/components/common/Login";
+import LoginPage from '@repo/ui/components/common/Login';
+// import LoadingSpinner from "@repo/ui/components/common/LoadingSpinner";
+
 // import './App.css';
 
 // Login logic?
-// Routes?
+// Routes?  DONE
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 // pages...
@@ -32,6 +38,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
                         <Route index element={<HomePage />}></Route>
+                        {/*This is NOT working for some reason, check the Login component*/}
+                        <Route path={homeRoutes('login')} element={<LoginPage />}></Route>
+
+                        {/*Protected routes EXAMPLE*s/}
 
                         {/*As of now the construction pages are going to be part of the home page main layout. NO need to reload*/}
                         <Route path={ROUTE_CONFIG.construction.basePath}>
@@ -43,7 +53,6 @@ function App() {
                             <Route path={constRoutes("discussion")} element={<UnderConstruction estimatedCompletion="May 2025"/>}></Route>
                         </Route>
 
-                        <Route path={homeRoutes("login")} element={<Login />}></Route>
                     </Route>
                 </Routes>
 
