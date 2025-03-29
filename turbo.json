@@ -1,12 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalEnv": ["MY_LAST_REQUEST"],
   "tasks": {
     "build": {
+      "env": ["VITE_API_URL", "PLEASE_STOP"],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
+
     "lint": {
       "dependsOn": ["^lint"]
     },
@@ -14,6 +17,7 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
+      "env": ["VITE_API_URL", "PLEASE_STOP"],
       "cache": false,
       "persistent": true
     }

@@ -2,11 +2,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
-
 import homeEs from '../src/locales/es/home';
 
 import type { I18nConfig, Locale, NamespaceKey } from "./types";
-
 
 // We are setting the default language to be spanish and passing the namespaces manually, which differ from the
 // types declaration in types.ts
@@ -79,6 +77,13 @@ export async function setUpI18n(customConfig?: Partial<I18nConfig>) {
         if (!config.supportedLocales.includes(locale)) {
             return;
         }
+
+        console.log("Bro where are you?")
+        const NODE_ENV = import.meta.env.VITE_SOMEONE_LIKE_YOU;
+        // const PLEASE_STOP = process.env.ts.PLEASE_STOP;
+        // const MY_LAST_REQUEST = process.env.ts.MY_LAST_REQUEST;
+        console.log(NODE_ENV)
+        // console.log(MY_LAST_REQUEST)
 
         // Loading all modules seems like a nice fake performance idea
         for (const ns of config.namespaces) {
